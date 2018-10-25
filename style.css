@@ -1,0 +1,39 @@
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+#ProcessingToolMenu{
+  position: fixed;
+  right: 5px;
+  top: 5px;
+  background-color: rgb(60,60,60);
+  border: 1px solid rgb(0,0,0);
+  display: flex;
+  flex-direction: column;
+}
+
+#ProcessingToolMenu > h3{
+  color: rgb(255,255,255);
+  margin: 0;
+  padding: 0;
+  margin-left: 10px;
+}
+#ProcessingToolMenu > h2{
+  color: rgb(255,255,255);
+  margin: 0;
+  padding: 0;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+}
+#ProcessingToolMenu input{
+  margin-left: 10px;
+  margin-right: 10px;
+}
+#ProcessingToolMenu button{
+  margin: 10px;
+}
+#drawBtn{
+  height: 40px;
+}
