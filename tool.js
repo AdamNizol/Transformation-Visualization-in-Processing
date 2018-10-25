@@ -131,7 +131,7 @@ function updateScreen(){
     setTimeout(function(){
       displayTimeout = false;
       updateScreen();
-    }, 10);
+    }, 7);
   }
 }
 
