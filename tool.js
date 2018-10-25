@@ -38,6 +38,28 @@ function setup() {
     draw();
   };
 
+
+  document.getElementById("transXReset").onclick = function(){
+    document.getElementById("transXSlide").value = 0;
+    document.getElementById("transX").value = 0;
+    draw();
+  };
+  document.getElementById("transYReset").onclick = function(){
+    document.getElementById("transYSlide").value = 0;
+    document.getElementById("transY").value = 0;
+    draw();
+  };
+  document.getElementById("scaleReset").onclick = function(){
+    document.getElementById("scaleSlide").value = 1;
+    document.getElementById("scale").value = 1;
+    draw();
+  };
+  document.getElementById("rotationReset").onclick = function(){
+    document.getElementById("rotationSlide").value = 0;
+    document.getElementById("rotation").value = 0;
+    draw();
+  };
+
   document.getElementById("resetBtn").onclick = function(){
     document.getElementById("transX").value = 0;
     document.getElementById("transXSlide").value = 0;
