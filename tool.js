@@ -59,17 +59,17 @@ function setup() {
 
 function draw() {
   push();
-  background(250, 250, 250);
+  background(240, 240, 240);
   translate(width/2, height/2);
   scale(1);
   push();
 
-  stroke(125);
-  drawGrid(1);
-  stroke(255,0,0);
+  //stroke(125);
+  drawGrid(1,125);
+  //stroke(255,0,0);
   translate(document.getElementById("transX").value, document.getElementById("transY").value);
   scale(document.getElementById("scale").value)
-  drawGrid(2);
+  drawGrid(3,color(255,0,0),1);
 
   pop();
   stroke(0,0,200);
@@ -91,15 +91,16 @@ function drawShape(){
   ellipse(0, 0, 200, 200);
 }
 
-function drawGrid(thickness = 1){
+function drawGrid(thickness = 1, col = color(0,0,0),foreground = 0){
   push();
   let size = 5000;
   translate(-size/2,-size/2)
 	for (var x = 0; x < size; x += 100) {
 		for (var y = 0; y < size; y += 100) {
 			//stroke(0);
-      if(x == (size/2)&& y == (size/2)){
-        strokeWeight(5);
+      stroke(col);
+      if(x == (size/2) && y == (size/2)){
+        strokeWeight(thickness+4);
       }else{
         strokeWeight(thickness);
       }
@@ -107,5 +108,11 @@ function drawGrid(thickness = 1){
 			line(0, y, size, y);
 		}
 	}
+  if(foreground){
+    stroke(color(0,0,0));
+    strokeWeight(thickness+4);
+    line(size/2, 0, size/2, size);
+    line(0, size/2, size, size/2);
+  }
   pop();
 }
