@@ -3,29 +3,29 @@ function setup() {
   createCanvas(window.innerWidth,window.innerHeight);
   //frameRate(60);
   window.addEventListener('resize', function(){ resizeCanvas(window.innerWidth,window.innerHeight)} );
-  document.getElementById("transXSlide").onchange = function(){
+  document.getElementById("transXSlide").oninput = function(){
     document.getElementById("transX").value = document.getElementById("transXSlide").value;
     draw();
   };
-  document.getElementById("transYSlide").onchange = function(){
+  document.getElementById("transYSlide").oninput = function(){
     document.getElementById("transY").value = document.getElementById("transYSlide").value;
     draw();
   };
-  document.getElementById("scaleSlide").onchange = function(){
+  document.getElementById("scaleSlide").oninput = function(){
     document.getElementById("scale").value = document.getElementById("scaleSlide").value
     draw();
   };
 
 
-  document.getElementById("transX").onchange = function(){
+  document.getElementById("transX").oninput = function(){
     document.getElementById("transXSlide").value = document.getElementById("transX").value;
     draw();
   };
-  document.getElementById("transY").onchange = function(){
+  document.getElementById("transY").oninput = function(){
     document.getElementById("transYSlide").value = document.getElementById("transY").value;
     draw();
   };
-  document.getElementById("scale").onchange = function(){
+  document.getElementById("scale").oninput = function(){
     document.getElementById("scaleSlide").value = document.getElementById("scale").value;
     draw();
   };
