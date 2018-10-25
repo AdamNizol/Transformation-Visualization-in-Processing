@@ -15,6 +15,10 @@ function setup() {
     document.getElementById("scale").value = document.getElementById("scaleSlide").value
     draw();
   };
+  document.getElementById("rotationSlide").oninput = function(){
+    document.getElementById("rotation").value = document.getElementById("rotationSlide").value
+    draw();
+  };
 
 
   document.getElementById("transX").oninput = function(){
@@ -29,6 +33,10 @@ function setup() {
     document.getElementById("scaleSlide").value = document.getElementById("scale").value;
     draw();
   };
+  document.getElementById("rotation").oninput = function(){
+    document.getElementById("rotationSlide").value = document.getElementById("rotation").value;
+    draw();
+  };
 
   document.getElementById("resetBtn").onclick = function(){
     document.getElementById("transX").value = 0;
@@ -40,6 +48,9 @@ function setup() {
     document.getElementById("scale").value = 1;
     document.getElementById("scaleSlide").value = 1;
 
+    document.getElementById("rotation").value = 0;
+    document.getElementById("rotationSlide").value = 0;
+
     objectsList = [];
     draw();
   }
@@ -49,6 +60,7 @@ function setup() {
     tempObj.x = document.getElementById("transX").value;
     tempObj.y = document.getElementById("transY").value;
     tempObj.scale = document.getElementById("scale").value;
+    tempObj.rotation = document.getElementById("rotation").value;
 
     objectsList.push(tempObj);
     draw();
@@ -69,6 +81,7 @@ function draw() {
   //stroke(255,0,0);
   translate(document.getElementById("transX").value, document.getElementById("transY").value);
   scale(document.getElementById("scale").value)
+  rotate(radians(document.getElementById("rotation").value));
   drawGrid(2,color(255,0,0),1);
 
   pop();
@@ -79,6 +92,7 @@ function draw() {
     push();
     translate(objectsList[i].x,objectsList[i].y);
     scale(objectsList[i].scale);
+    rotate(radians(objectsList[i].rotation));
     drawShape();
     pop();
   }
