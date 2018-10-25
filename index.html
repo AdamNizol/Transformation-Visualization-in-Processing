@@ -9,34 +9,39 @@
 </head>
 <body>
   <div id="ProcessingToolMenu">
-    <h2>Translate</h3>
-    <h3>X: </h3>
-    <input type="range" min="-500" max="500" step="0.5" value="0" id="transXSlide">
-    <div class="valueRow">
-      <input type="number" id="transX" value="0">
-      <input type="image" class="resetBtn" id="transXReset" src="refresh.svg" />
-    </div>
+    <div class="transformation">
+      <h2>Translate</h3>
+      <h3>X: </h3>
+      <input type="range" min="-500" max="500" step="0.5" value="0" id="transXSlide" class="slider">
+      <div class="valueRow">
+        <input type="number" id="transX" value="0" class="numberInput">
+        <input type="image" class="resetBtn" id="transXReset" src="refresh.svg" />
+      </div>
+      <h3>Y: </h3>
+      <input type="range" min="-500" max="500" step="0.5" value="0" id="transYSlide" class="slider">
+      <div class="valueRow">
+        <input type="number" id="transY" value="0" class="numberInput">
+        <input type="image" class="resetBtn" id="transYReset" src="refresh.svg" />
+      </div>
+  </div>
 
-    <h3>Y: </h3>
-    <input type="range" min="-500" max="500" step="0.5" value="0" id="transYSlide">
-    <div class="valueRow">
-      <input type="number" id="transY" value="0">
-      <input type="image" class="resetBtn" id="transYReset" src="refresh.svg" />
-    </div>
-
+  <div class="transformation">
     <h2>Scale</h2>
-    <input type="range" min="0.5" max="3" step="0.01" value="1" id="scaleSlide">
+    <input type="range" min="0.5" max="3" step="0.01" value="1" id="scaleSlide" class="slider">
     <div class="valueRow">
-      <input type="number" id="scale" value="1" step="0.01">
+      <input type="number" id="scale" value="1" step="0.01" class="numberInput">
       <input type="image" class="resetBtn" id="scaleReset" src="refresh.svg" />
     </div>
+  </div>
 
+  <div class="transformation">
     <h2>Rotate</h2>
-    <input type="range" min="-180" max="180" step="0.01" value="0" id="rotationSlide">
+    <input type="range" min="-180" max="180" step="0.01" value="0" id="rotationSlide" class="slider">
     <div class="valueRow">
-      <input type="number" id="rotation" value="0" step="0.01">
+      <input type="number" id="rotation" value="0" step="0.01" class="numberInput">
       <input type="image" class="resetBtn" id="rotationReset" src="refresh.svg" />
     </div>
+  </div>
 
     <button id="drawBtn">Draw</button>
 
