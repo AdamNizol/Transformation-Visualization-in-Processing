@@ -65,11 +65,11 @@ function draw() {
   push();
 
   //stroke(125);
-  drawGrid(1,125);
+  drawGrid(1,140);
   //stroke(255,0,0);
   translate(document.getElementById("transX").value, document.getElementById("transY").value);
   scale(document.getElementById("scale").value)
-  drawGrid(3,color(255,0,0),1);
+  drawGrid(2,color(255,0,0),1);
 
   pop();
   stroke(0,0,200);
