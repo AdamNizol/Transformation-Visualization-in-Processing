@@ -7,11 +7,14 @@ body {
   overflow: hidden;
 }
 canvas {
+  position: fixed;
   top: 0;
   left: 0;
+  z-index: 1;
 }
 #ProcessingToolMenu{
   position: fixed;
+  z-index: 2;
   right: 5px;
   top: 5px;
   background-color: rgb(60,60,60);
