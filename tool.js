@@ -103,6 +103,8 @@ function draw() {
 
 function drawShape(){
   ellipse(0, 0, 200, 200);
+  line(0, 0, 70.7107, 70.7107);
+  line(0, 0, -70.7107, 70.7107);
 }
 
 function drawGrid(thickness = 1, col = color(0,0,0),foreground = 0){
