@@ -1,63 +1,64 @@
 objectsList = [];
+displayTimeout = false;
 function setup() {
   createCanvas(window.innerWidth,window.innerHeight);
   //frameRate(60);
   window.addEventListener('resize', function(){ resizeCanvas(window.innerWidth,window.innerHeight)} );
   document.getElementById("transXSlide").oninput = function(){
     document.getElementById("transX").value = document.getElementById("transXSlide").value;
-    draw();
+    updateScreen();
   };
   document.getElementById("transYSlide").oninput = function(){
     document.getElementById("transY").value = document.getElementById("transYSlide").value;
-    draw();
+    updateScreen();
   };
   document.getElementById("scaleSlide").oninput = function(){
     document.getElementById("scale").value = document.getElementById("scaleSlide").value
-    draw();
+    updateScreen();
   };
   document.getElementById("rotationSlide").oninput = function(){
     document.getElementById("rotation").value = document.getElementById("rotationSlide").value
-    draw();
+    updateScreen();
   };
 
 
   document.getElementById("transX").oninput = function(){
     document.getElementById("transXSlide").value = document.getElementById("transX").value;
-    draw();
+    updateScreen();
   };
   document.getElementById("transY").oninput = function(){
     document.getElementById("transYSlide").value = document.getElementById("transY").value;
-    draw();
+    updateScreen();
   };
   document.getElementById("scale").oninput = function(){
     document.getElementById("scaleSlide").value = document.getElementById("scale").value;
-    draw();
+    updateScreen();
   };
   document.getElementById("rotation").oninput = function(){
     document.getElementById("rotationSlide").value = document.getElementById("rotation").value;
-    draw();
+    updateScreen();
   };
 
 
   document.getElementById("transXReset").onclick = function(){
     document.getElementById("transXSlide").value = 0;
     document.getElementById("transX").value = 0;
-    draw();
+    updateScreen();
   };
   document.getElementById("transYReset").onclick = function(){
     document.getElementById("transYSlide").value = 0;
     document.getElementById("transY").value = 0;
-    draw();
+    updateScreen();
   };
   document.getElementById("scaleReset").onclick = function(){
     document.getElementById("scaleSlide").value = 1;
     document.getElementById("scale").value = 1;
-    draw();
+    updateScreen();
   };
   document.getElementById("rotationReset").onclick = function(){
     document.getElementById("rotationSlide").value = 0;
     document.getElementById("rotation").value = 0;
-    draw();
+    updateScreen();
   };
 
   document.getElementById("resetBtn").onclick = function(){
@@ -121,6 +122,17 @@ function draw() {
 
   pop();
   //noloop();
+}
+
+function updateScreen(){
+  if(!displayTimeout){
+    draw();
+    displayTimeout = true;
+    setTimeout(function(){
+      displayTimeout = false;
+      updateScreen();
+    }, 10);
+  }
 }
 
 function drawShape(){
