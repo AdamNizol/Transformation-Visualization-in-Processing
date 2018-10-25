@@ -93,7 +93,7 @@ function drawShape(){
 
 function drawGrid(thickness = 1, col = color(0,0,0),foreground = 0){
   push();
-  let size = 5000;
+  let size = 7000;
   translate(-size/2,-size/2)
 	for (var x = 0; x < size; x += 100) {
 		for (var y = 0; y < size; y += 100) {
