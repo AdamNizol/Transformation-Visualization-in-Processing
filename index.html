@@ -9,8 +9,13 @@
 </head>
 <body>
   <div id="ProcessingToolMenu">
-    <div class="transformation">
-      <h2>Translate</h3>
+    <div class="transformation" id="transTransformation">
+      <div class="transformationTitleBar">
+        <input type="image" class="layerOrderBtn" src="ArrowDown.png" id="transDown" />
+        <h2>Translate</h2>
+        <input type="image" class="layerOrderBtn" src="ArrowUp.png" id="transUp" />
+      </div>
+
       <h3>X: </h3>
       <input type="range" min="-500" max="500" step="0.5" value="0" id="transXSlide" class="slider">
       <div class="valueRow">
@@ -25,8 +30,13 @@
       </div>
   </div>
 
-  <div class="transformation">
-    <h2>Scale</h2>
+  <div class="transformation" id="scaleTransformation">
+    <div class="transformationTitleBar">
+      <input type="image" class="layerOrderBtn" src="ArrowDown.png" id="scaleDown" />
+      <h2>Scale</h2>
+      <input type="image" class="layerOrderBtn" src="ArrowUp.png" id="scaleUp" />
+    </div>
+
     <input type="range" min="0.5" max="3" step="0.01" value="1" id="scaleSlide" class="slider">
     <div class="valueRow">
       <input type="number" id="scale" value="1" step="0.01" class="numberInput">
@@ -34,8 +44,13 @@
     </div>
   </div>
 
-  <div class="transformation">
-    <h2>Rotate</h2>
+  <div class="transformation" id="rotationTransformation">
+    <div class="transformationTitleBar">
+      <input type="image" class="layerOrderBtn" src="ArrowDown.png" id="rotationDown" />
+      <h2>Rotate</h2>
+      <input type="image" class="layerOrderBtn" src="ArrowUp.png" id="rotationUp" />
+    </div>
+
     <input type="range" min="-180" max="180" step="0.01" value="0" id="rotationSlide" class="slider">
     <div class="valueRow">
       <input type="number" id="rotation" value="0" step="0.01" class="numberInput">
@@ -45,7 +60,7 @@
 
     <button id="drawBtn">Draw</button>
 
-    <button id="resetBtn">RESET</button>
+    <button id="resetBtn">Reset Values</button>
   </div>
 </body>
 </html>

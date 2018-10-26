@@ -43,7 +43,7 @@ canvas {
   width: calc(100% - 10px);
   transform: translateY(4px);
 }
-#ProcessingToolMenu > .transformation > h2{
+#ProcessingToolMenu > .transformation h2{
   color: rgb(255,255,255);
   margin: 0;
   padding: 0;
@@ -126,8 +126,22 @@ canvas {
   background: #ffffff;
 }
 
-
-
 .slider:hover {
     opacity: 0.8;
+}
+
+.transformationTitleBar{
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  width: calc(100% - 20px);
+  justify-content: space-between;
+}
+.layerOrderBtn{
+  border-radius: 20%;
+  height: 1.4rem;
+  background-color: rgb(120,120,120);
+}
+.layerOrderBtn:hover{
+  background-color: rgb(135,135,135);
 }

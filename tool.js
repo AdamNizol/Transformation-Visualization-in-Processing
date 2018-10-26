@@ -1,5 +1,7 @@
-objectsList = [];
-displayTimeout = false;
+let objectsList = [];
+let displayTimeout = false;
+let order = ["trans", "scale", "rotation"];
+
 function setup() {
   createCanvas(window.innerWidth,window.innerHeight);
   //frameRate(60);
@@ -61,6 +63,33 @@ function setup() {
     updateScreen();
   };
 
+  document.getElementById("transUp").onclick = function(){
+    shiftTransformation("trans", "up");
+    updateScreen();
+  };
+  document.getElementById("transDown").onclick = function(){
+    shiftTransformation("trans", "down");
+    updateScreen();
+  };
+  document.getElementById("scaleUp").onclick = function(){
+    shiftTransformation("scale", "up");
+    updateScreen();
+  };
+  document.getElementById("scaleDown").onclick = function(){
+    shiftTransformation("scale", "down");
+    updateScreen();
+  };
+  document.getElementById("rotationUp").onclick = function(){
+    shiftTransformation("rotation", "up");
+    updateScreen();
+  };
+  document.getElementById("rotationDown").onclick = function(){
+    shiftTransformation("rotation", "down");
+    updateScreen();
+  };
+
+
+
   document.getElementById("resetBtn").onclick = function(){
     document.getElementById("transX").value = 0;
     document.getElementById("transXSlide").value = 0;
@@ -79,17 +108,64 @@ function setup() {
   }
 
   document.getElementById("drawBtn").onclick = function(){
-    let tempObj = {};
-    tempObj.x = document.getElementById("transX").value;
-    tempObj.y = document.getElementById("transY").value;
-    tempObj.scale = document.getElementById("scale").value;
-    tempObj.rotation = document.getElementById("rotation").value;
+    let t = {
+      x: document.getElementById("transX").value,
+      y: document.getElementById("transY").value,
+      scale: document.getElementById("scale").value,
+      rotation: document.getElementById("rotation").value
+    }
+    let tempObj = {
+      transf: t,
+      tOrder: order
+    };
 
     objectsList.push(tempObj);
     draw();
   }
 
   noLoop();
+}
+
+function shiftTransformation(type, direction){
+  if(direction=="up"){
+    for(let i=1; i<order.length; i++){
+      if(order[i] == type){
+        //insert type DOM before i-1's DOM
+        document.getElementById(type+"Transformation").parentNode.insertBefore(document.getElementById(type+"Transformation"),document.getElementById(order[i-1]+"Transformation"));
+        let temp = order[i];
+        order[i] = order[i-1];
+        order[i-1] = temp;
+        break;
+      }
+    }
+  }else{ //down
+    for(let i=0; i<order.length-1; i++){
+      if(order[i] == type){
+        //insert type DOM before i-1's DOM
+        document.getElementById(type+"Transformation").parentNode.insertBefore(document.getElementById(order[i+1]+"Transformation"),document.getElementById(type+"Transformation"));
+        let temp = order[i];
+        order[i] = order[i+1];
+        order[i+1] = temp;
+        break;
+      }
+    }
+  }
+}
+
+function orderedTranslate(transformations, transformationOrder){
+  for(let i=0; i<transformationOrder.length; i++){
+    switch(transformationOrder[i]){
+      case "trans":
+        translate(transformations.x, transformations.y);
+        break;
+      case "scale":
+        scale(transformations.scale);
+        break;
+      case "rotation":
+        rotate(radians(transformations.rotation));
+        break;
+    }
+  }
 }
 
 function draw() {
@@ -102,9 +178,16 @@ function draw() {
   //stroke(125);
   drawGrid(1,140);
   //stroke(255,0,0);
-  translate(document.getElementById("transX").value, document.getElementById("transY").value);
+  let t = {
+    x: document.getElementById("transX").value,
+    y: document.getElementById("transY").value,
+    scale: document.getElementById("scale").value,
+    rotation: document.getElementById("rotation").value
+  }
+  orderedTranslate(t, order);
+  /*translate(document.getElementById("transX").value, document.getElementById("transY").value);
   scale(document.getElementById("scale").value)
-  rotate(radians(document.getElementById("rotation").value));
+  rotate(radians(document.getElementById("rotation").value));*/
   drawGrid(2,color(255,0,0),1);
 
   pop();
@@ -113,9 +196,10 @@ function draw() {
   fill(0,0,0,0)
   for(let i=0;i<objectsList.length;i++){
     push();
-    translate(objectsList[i].x,objectsList[i].y);
+    orderedTranslate(objectsList[i].transf, objectsList[i].tOrder);
+    /*translate(objectsList[i].x,objectsList[i].y);
     scale(objectsList[i].scale);
-    rotate(radians(objectsList[i].rotation));
+    rotate(radians(objectsList[i].rotation));*/
     drawShape();
     pop();
   }
