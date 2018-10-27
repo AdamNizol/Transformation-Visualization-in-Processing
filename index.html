@@ -30,6 +30,20 @@
       </div>
   </div>
 
+  <div class="transformation" id="rotationTransformation">
+    <div class="transformationTitleBar">
+      <input type="image" class="layerOrderBtn" src="ArrowDown.png" id="rotationDown" />
+      <h2>Rotate</h2>
+      <input type="image" class="layerOrderBtn" src="ArrowUp.png" id="rotationUp" />
+    </div>
+
+    <input type="range" min="-180" max="180" step="0.01" value="0" id="rotationSlide" class="slider">
+    <div class="valueRow">
+      <input type="number" id="rotation" value="0" step="0.01" class="numberInput">
+      <input type="image" class="resetBtn" id="rotationReset" src="refresh.svg" />
+    </div>
+  </div>
+
   <div class="transformation" id="scaleTransformation">
     <div class="transformationTitleBar">
       <input type="image" class="layerOrderBtn" src="ArrowDown.png" id="scaleDown" />
@@ -44,19 +58,7 @@
     </div>
   </div>
 
-  <div class="transformation" id="rotationTransformation">
-    <div class="transformationTitleBar">
-      <input type="image" class="layerOrderBtn" src="ArrowDown.png" id="rotationDown" />
-      <h2>Rotate</h2>
-      <input type="image" class="layerOrderBtn" src="ArrowUp.png" id="rotationUp" />
-    </div>
 
-    <input type="range" min="-180" max="180" step="0.01" value="0" id="rotationSlide" class="slider">
-    <div class="valueRow">
-      <input type="number" id="rotation" value="0" step="0.01" class="numberInput">
-      <input type="image" class="resetBtn" id="rotationReset" src="refresh.svg" />
-    </div>
-  </div>
 
     <button id="drawBtn">Draw</button>
 

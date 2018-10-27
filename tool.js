@@ -1,6 +1,6 @@
 let objectsList = [];
 let displayTimeout = false;
-let order = ["trans", "scale", "rotation"];
+let order = ["trans", "rotation", "scale"];
 
 function setup() {
   createCanvas(window.innerWidth,window.innerHeight);
