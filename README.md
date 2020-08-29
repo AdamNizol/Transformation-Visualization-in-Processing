@@ -1,7 +1,7 @@
-# Transformation Visualization Web-Tool for Processing
-An interactive web-tool that demonstrates some basic transformations in processing.
+# Transformation Visualization Web-Tool for Processing and P5
+### [Live Demo](https://adamnizol.github.io/Transformation-Visualization-in-Processing/)
 
+Transformation Visualization for processing is an educational tool I developed to help students or anyone learning Processing to understand how the transformations work and why the order of them matters.
 
-This simple web-tool demonstrates how translate, scale, and rotate work in processing. I developed this tool as a instructional aid for teaching processing. This was made using p5.js however it is applicable to any version of processing.
+Although it's designed to explain transformations in Processing, I developed it using the Javascript implementation: P5Js. This was so that students and educators could easily reference or share it without needing to have Processing or java installed.
 
-https://adamnizol.github.io/Transformation-Visualization-in-Processing/
